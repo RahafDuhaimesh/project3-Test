@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us!</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="contact.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="main-content">
+
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" 
+     style="min-height: 600px;
+            background-image: url('contactUs.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            position: relative;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-default opacity-8" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></span>
+    <!-- Header container -->
+     <center>
+    <div style="position: relative; z-index: 2;">
+        <h1 style="color: white; font-size: 100px;  margin-left: 20px;">Contact Us!</h1>
+        <h2 style="color: white; font-size: 50px; margin-left: 40px; ">Your Satisfaction is Our Duty</h2>
+    </div>
+</center>
+</div>    
+<!-- Feedback Form -->
+<div class="container mt-5">
+    <div class="feedback-form-container" >
+    <center>
+        <div class="form-header">
+            <h2>Feedback Form</h2>
+            <p>Please share your feedback with us</p>
+        </div>
+        <form>
+            <div class="row" style="display: flex; justify-content: space-around;">
+                <div>
+                    <div class="form-group" >
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" >
+                        <label for="email">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="person@example.com" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; justify-content: space-around;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="date">Date of Visit</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="feedbackType">Type of Feedback</label>
+                        <select class="form-control" id="feedbackType" required>
+                            <option selected disabled>Choose...</option>
+                            <option>General Feedback</option>
+                            <option>Complaint</option>
+                            <option>Suggestion</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="feedback">Feedback Details</label>
+                <textarea class="form-control" id="feedback" rows="4"  placeholder="Feedback Details" required></textarea>
+            </div>
+<!-- Stars -->
+            <div class="form-group">
+                <label>How would you rate your overall experience?</label>
+                <div class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="1-star" name="rating" value="1" />
+                    <label for="1-star" class="star">&#9733;</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div></center>
+</div>
+
+<!-- <div class="col-xl-8 order-xl-1">
+  <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">My account</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                      <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-username">Username</label>
+                            <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Email address</label>
+                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-first-name">First name</label>
+                            <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-last-name">Last name</label>
+                            <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    
+                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-address">Address</label>
+                            <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-city">City</label>
+                            <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-country">Country</label>
+                            <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-country">Postal code</label>
+                            <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </footer> -->
+</html>
