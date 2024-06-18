@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints Dashboard</title>
+    <link rel="stylesheet" href="feedback.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .status-counter {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px;
+        }
+        
+        .counter-value {
+            animation: countTo 2s ease-in-out;
+        }
+        
+        @keyframes countTo {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center" style="color: rgb(36, 36, 84);">Feedback Dashboard</h2>
+
+        <div class="form-row">
+            <div class="form-group col-md-4 col-12" style="width: 300px;">
+                <label for="filterColumn">Filter by:</label>
+                <select class="form-control" style="width: 300px;" id="filterColumn">
+                    <option value="0">Email</option>
+                    <option value="1">Name</option>
+                    <option value="2">Priority</option>
+                    <option value="3">Type of Feedback</option>
+                    <option value="4">Status</option>
+                    <option value="5">Date of Submit</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4 col-12" style="width: 300px;">
+                <label for="filterInput">Filter value:</label>
+                <input type="text" class="form-control" id="filterInput" list="filterValues" style="width: 300px;" placeholder="Type to filter complaints">
+                <datalist id="filterValues"></datalist>
+            </div>
+            <button id="clearFilterButton" class="btn btn-secondary ">Clear Filter</button>
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover mt-3" id="complaintsTable">
+                <thead style="background-color: rgb(36, 36, 84); text-align: center; color: white;">
+                    <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Priority</th>
+                        <th>Type of feedback</th>
+                        <th>Status</th>
+                        <th>Date of Submit</th>
+                        <th>Content of Feedback</th>
+                        <th>Task Completed</th>
+                        <th>Send Email</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintsTableBody" style="text-align: center; color: rgb(36, 36, 84);;">
+                </tbody>
+            </table>
+        </div>
+        <DIV class="counting">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-6">
+                    <div class="status-counter">
+                        Closed Cases: <span id="closedCounter" class="counter-value">0</span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="status-counter">
+                        Open Cases: <span id="openCounter" class="counter-value">0</span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="status-counter">
+                        Pending Cases: <span id="pendingCounter" class="counter-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </DIV>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="feedback.js"></script>
+</body>
+
+</html>
