@@ -7,7 +7,9 @@
 
 body {
   background-color: #f8f9fa;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Open Sans, sans-serif;
+  color: #525f7f;
+  background-color: #f8f9fe;
 }
 
 .container {
@@ -15,10 +17,9 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   overflow-x: auto;
 }
-
 
 /* ShowMore */
 
@@ -51,7 +52,6 @@ body {
   padding: 20px;
 }
 
-
 /* Counter Section */
 
 .counter {
@@ -83,7 +83,8 @@ body {
   border-radius: 10px;
 }
 
-#clearFilterButton {
+#clearFilterButton,
+#download-btn {
   background-color: rgb(185, 198, 198);
   color: rgb(36, 36, 84);
   border: 1px solid transparent;
@@ -113,14 +114,12 @@ body {
   overflow-y: auto;
 }
 
-
 /*showMore*/
 
 .content {
   height: 100px;
   overflow-y: hidden;
 }
-
 
 /* Responsive Design for Smaller Screens */
 
@@ -154,4 +153,8 @@ body {
   .counter {
     margin-left: 65px;
   }
+}
+
+#download-btn:hover {
+  background-color: #45a049;
 }
