@@ -9,6 +9,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="feedback.css" />
+    <link rel="stylesheet" href="Footer.css" />
+    <link rel="stylesheet" href="header.css" />
 
     <style>
       .status-counter {
@@ -17,7 +19,10 @@
         text-align: center;
         margin: 10px;
       }
-
+      .container {
+        max-width: 90%; /* Ensure it can expand to full width */
+        width: 2000px; /* Set your desired width */
+      }
       .counter-value {
         animation: countTo 2s ease-in-out;
       }
@@ -34,17 +39,55 @@
       }
     </style>
   </head>
+  <!-- NavBar -->
+  <header>
+    <div class="logo">
+      <img src="Untitled_Project__4_-removebg-preview.png" id="img" alt="" />
+    </div>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <ul>
+          <li><a href="" class="active">Home</a></li>
+          <li><a href="">Our Partners</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="" id="display3">Profile</a></li>
+          <li><a href="" id="display4">Logout</a></li>
+        </ul>
+      </div>
+      <div class="profile-menu">
+        <div class="profile-name">Menu <span id="triangle">&#9660;</span></div>
+        <ul class="dropdown">
+          <li><a href="">Profile</a></li>
+          <li><a href="">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <body>
-    <div class="container mt-5">
-      <h2 class="mb-4 text-center" style="color: rgb(36, 36, 84)">
+    <div class="container mt-5" style="width: 2000px">
+      <h2
+        class="mb-4 text-center"
+        style="color: rgb(36, 36, 84); font-size: 35px"
+      >
         Feedback Dashboard
       </h2>
 
       <div class="form-row">
-        <div class="form-group col-md-4 col-12" style="width: 300px">
+        <div class="form-group col-md-4 col-12" style="width: 350px">
           <label for="filterColumn">Filter by:</label>
-          <select class="form-control" style="width: 300px" id="filterColumn">
+          <select
+            class="form-control"
+            style="width: 300px; height: 50px; font-size: 20px"
+            id="filterColumn"
+          >
             <option value="0">Email</option>
             <option value="1">Name</option>
             <option value="2">Priority</option>
@@ -61,17 +104,25 @@
             class="form-control"
             id="filterInput"
             list="filterValues"
-            style="width: 300px"
+            style="width: 300px; height: 50px; font-size: 20px"
             placeholder="Type to filter complaints"
           />
           <datalist id="filterValues"></datalist>
         </div>
 
-        <button id="clearFilterButton" class="btn btn-info">
+        <button
+          id="clearFilterButton"
+          class="btn btn-info"
+          style="width: fit-content; height: 50px; font-size: 20px"
+        >
           Clear Filter
         </button>
 
-        <button id="download-btn" class="btn btn-secondary">
+        <button
+          id="download-btn"
+          style="width: fit-content; height: 50px; font-size: 20px"
+          class="btn btn-secondary"
+        >
           Download as CVS
         </button>
       </div>
@@ -97,6 +148,7 @@
               <th>Content of Feedback</th>
               <th>Task Completed</th>
               <th>Send Email</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody
@@ -128,7 +180,69 @@
         </div>
       </div>
     </div>
+    <footer>
+      <div class="footer_container">
+        <div class="footer_grid">
+          <div class="footer_logo">
+            <img src="Untitled_Project__4_-removebg-preview.png" alt="" />
+          </div>
 
+          <div class="pages">
+            <h2 class="list_title">Pages</h2>
+            <a href="#home">Home</a>
+            <a href="#partners">Our Partners</a>
+            <a href="#services">Services</a>
+            <a href="#aboutUs">About Us</a>
+            <a href="#contactUs">Contact Us</a>
+          </div>
+
+          <div class="info">
+            <h2 class="list_title">Info</h2>
+            <p>
+              Email: <a href="mailto:Example@gmail.com"> Example@gmail.com</a>
+            </p>
+
+            <p>Phone: <a href="tel:009627*********"> +9627**********</a></p>
+
+            <p>
+              Address:<a
+                href="https://maps.app.goo.gl/zQqZPFxcDaGF4P887"
+                target="_blank"
+              >
+                6 Sheikh K ste,<br />Irbid, Orange Digital <br />Village</a
+              >
+            </p>
+          </div>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13452.038915311185!2d35.8496688!3d32.5525856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c7715f2c2e7ab%3A0x51755840c8ddbefd!2sOrange%20Digital%20Village%20Irbid!5e0!3m2!1sar!2sjo!4v1716222013922!5m2!1sar!2sjo"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrery="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <div class="copy">
+          <p id="copy">
+            Copyright &copy; 2024 Example Company. All rights reserved.
+          </p>
+        </div>
+
+        <div class="footer_plateform">
+          <a href="linkedin.com/in/Example" target="_blank"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+          <a href="mailto:Example@gmail.com"><i class="bx bxl-gmail"></i></a>
+          <a href="tel:009627911111111"><i class="bx bx-phone"></i></a>
+        </div>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="feedback.js"></script>
   </body>

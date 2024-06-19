@@ -1,21 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
   let complaints = [];
-
   const tableBody = document.getElementById("complaintsTableBody");
-
+  //--------------------- Save complaints to localStorage---------------------
   function saveComplaints() {
     localStorage.setItem("complaints", JSON.stringify(complaints));
   }
-
-  function addRow(complaint) {
+  //  --------------------- delete Complaint function---------------------
+  function deleteComplaint(index) {
+    complaints.splice(index, 1);
+    saveComplaints();
+    renderTable();
+    updateCounts();
+  }
+  //   ---------------------add new row function---------------------
+  function addRow(complaint, index) {
     const newRow = tableBody.insertRow();
     newRow.insertCell(0).textContent = complaint.email;
     newRow.insertCell(1).textContent = complaint.name;
     newRow.insertCell(2).textContent = complaint.priority;
     newRow.insertCell(3).textContent = complaint.type;
-
+    // ---------------------status Select---------------------
     const statusCell = newRow.insertCell(4);
     const statusSelect = document.createElement("select");
+    statusCell.style.fontSize = 20;
+
     statusSelect.classList.add("form-control");
     ["Open", "Closed", "Pending"].forEach((status) => {
       const option = document.createElement("option");
@@ -33,29 +41,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     statusCell.appendChild(statusSelect);
     statusSelect.style.width = "110px";
-
+    // ---------------------date---------------------
     newRow.insertCell(5).textContent = complaint.date;
 
+    // ---------------------feedback-content---------------------
     const contentCell = newRow.insertCell(6);
-
     const contentWrapper = document.createElement("div");
     contentWrapper.style.maxHeight = "100px";
     contentWrapper.style.maxWidth = "120px";
-
     contentWrapper.style.overflowY = "hidden";
     contentWrapper.classList.add("feedback-content");
     contentWrapper.textContent = complaint.content;
     contentWrapper.setAttribute("data-full-content", complaint.content);
 
-    // showMore button
+    // ---------------------show More Button---------------------
     const showMoreButton = document.createElement("button");
     showMoreButton.textContent = "Show more";
-    showMoreButton.setAttribute("onclick", "handleShowMoreClick(this)");
-    /////
-    // add the div then the button
+    showMoreButton.addEventListener("click", function () {
+      handleShowMoreClick(this);
+    });
+
     contentCell.appendChild(contentWrapper);
     contentCell.appendChild(showMoreButton);
-
+    // ---------------------task completed---------------------
     const completedCell = newRow.insertCell(7);
     const completedCheckbox = document.createElement("input");
     completedCheckbox.type = "checkbox";
@@ -65,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       saveComplaints();
     });
     completedCell.appendChild(completedCheckbox);
-
+    // --------------------- send Email---------------------
     const sendEmailCell = newRow.insertCell(8);
     const sendEmailLink = document.createElement("a");
     sendEmailLink.href = `mailto:${complaint.email}`;
@@ -73,15 +81,27 @@ document.addEventListener("DOMContentLoaded", function () {
     sendEmailLink.style.background = "rgb(36, 36, 84)";
     sendEmailLink.classList.add("btn", "btn-sm", "btn-primary");
     sendEmailCell.appendChild(sendEmailLink);
-  }
+    // --------------------- Delete---------------------
 
+    const deleteCell = newRow.insertCell(9);
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("btn", "btn-sm", "btn-danger");
+    deleteButton.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete this item?")) {
+        deleteComplaint(index);
+      }
+    });
+    deleteCell.appendChild(deleteButton);
+  }
+  // --------------------- add the complaints ---------------------
   function loadComplaints() {
     const storedComplaints = localStorage.getItem("complaints");
     if (storedComplaints) {
       complaints = JSON.parse(storedComplaints);
     }
   }
-
+  // --------------------- update Counts ---------------------
   function updateCounts() {
     let closedCount = 0;
     let openCount = 0;
@@ -101,24 +121,28 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("openCounter").textContent = openCount;
     document.getElementById("pendingCounter").textContent = pendingCount;
   }
-
+  //  --------------------- ShowMore---------------------
   function handleShowMoreClick(showMoreButton) {
     const parentDiv = showMoreButton.previousElementSibling;
-    if (parentDiv.style.maxHeight == "100px") {
-      // Adjusted to match your CSS
+    if (parentDiv.style.maxHeight === "100px") {
       parentDiv.style.maxHeight = "unset";
-      showMoreButton.textContent = "Show less"; // Optionally change button text
+      showMoreButton.textContent = "Show less";
     } else {
-      parentDiv.style.maxHeight = "100px"; // Adjusted to match your CSS
-      showMoreButton.textContent = "Show more"; // Optionally change button text
+      parentDiv.style.maxHeight = "100px";
+      showMoreButton.textContent = "Show more";
     }
+  }
+
+  function renderTable() {
+    tableBody.innerHTML = "";
+    complaints.forEach((complaint, index) => {
+      addRow(complaint, index);
+    });
   }
 
   function initializeTable() {
     loadComplaints();
-    complaints.forEach((complaint, index) => {
-      addRow(complaint);
-    });
+    renderTable();
     updateCounts();
   }
 
@@ -154,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filterValues.appendChild(option);
     });
   });
-
+  //   filter
   filterInput.addEventListener("input", function () {
     const filterValue = filterInput.value.toLowerCase();
     const selectedColumn = filterColumn.value;
@@ -177,55 +201,37 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })();
       if (columnValue.includes(filterValue)) {
-        addRow(complaint);
+        addRow(complaint, index);
       }
     });
   });
 
+  //   Clear Filter
   const clearFilterButton = document.getElementById("clearFilterButton");
-
   clearFilterButton.addEventListener("click", function () {
     filterInput.value = "";
-    tableBody.innerHTML = "";
-    complaints.forEach(addRow);
+    renderTable();
     updateCounts();
   });
 
   tableBody.style.maxHeight = "400px";
 });
+
+// download as CVS
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("download-btn")
     .addEventListener("click", function () {
-      console.log("Button clicked");
-
       var table = document.getElementById("complaintsTable");
-      if (!table) {
-        console.error("Table not found");
-        return;
-      }
-
       var rows = table.rows;
-      if (!rows) {
-        console.error("Rows not found");
-        return;
-      }
-
       var csv = [];
 
-      // Loop through each row of the table
       for (var i = 0; i < rows.length; i++) {
         var row = [],
           cols = rows[i].cells;
-        if (!cols) {
-          console.error("Columns not found in row", i);
-          return;
-        }
-        // Loop through each column in the row
         for (var j = 0; j < cols.length; j++) {
           var cellText = cols[j].innerText;
 
-          // Handle special characters
           if (cellText.includes(",") || cellText.includes("\n")) {
             cellText = '"' + cellText.replace(/"/g, '""') + '"';
           }
@@ -235,24 +241,14 @@ document.addEventListener("DOMContentLoaded", function () {
         csv.push(row.join(","));
       }
 
-      console.log("CSV content:", csv);
-
-      // Create a CSV file content
       var csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
-
-      // Create a download link
       var downloadLink = document.createElement("a");
       downloadLink.download = "complaints.csv";
       downloadLink.href = window.URL.createObjectURL(csvFile);
       downloadLink.style.display = "none";
 
-      // Append the link to the body
       document.body.appendChild(downloadLink);
-
-      // Trigger the download
       downloadLink.click();
-
-      // Remove the link from the body
       document.body.removeChild(downloadLink);
     });
 });

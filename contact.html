@@ -7,8 +7,49 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> 
   <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="Footer.css">
+  <link rel="stylesheet" href="header.css">
+  <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
 </head>
 <body>
+ <!-- NavBar -->
+<header>
+  <div class="logo">
+    <img src="Untitled_Project__4_-removebg-preview.png" id="img" alt="" />
+  </div>
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <ul>
+        <li><a href="" class="active">Home</a></li>
+        <li><a href="">Our Partners</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="" id="display3">Profile</a></li>
+        <li><a href="" id="display4">Logout</a></li>
+      </ul>
+    </div>
+    <div class="profile-menu">
+      <div class="profile-name">
+        Menu <span id="triangle">&#9660;</span>
+      </div>
+      <ul class="dropdown">
+        <li><a href="">Profile</a></li>
+        <li><a href="">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <!-- Header -->
 <div class="background-image-container"><br><br><br><br><br><br><br><br>
   <h1 class="headerContainer"> Contact Us!</h1>
@@ -26,22 +67,22 @@
           <div>
               <div class="form-group" >
                   <label for="name">Your Name</label>
-                  <input type="text" style="width:200px; height: 40px;" class="form-control" id="name" placeholder="John Doe" required>
+                  <input type="text" style="width:350px; height: 50px;" class="form-control" id="name" placeholder="John Doe" required>
               </div>
           </div>
           <div class="col-md-6">
               <div class="form-group" >
                   <label for="email">Your Email</label>
-                  <input type="email" style="width:200px; height: 40px;" class="form-control" id="email" placeholder="person@example.com" required>
+                  <input type="email" style="width:350px; height: 50px;" class="form-control" id="email" placeholder="person@example.com" required>
               </div>
           </div>
       </div>
       <div class="row" style="display: flex; justify-content: space-around;">
        
-          <div class="col-md-6">
+          <div class="col-md-4">
               <div class="form-group">
                   <label for="feedbackType">Type of Feedback</label>
-                  <select class="form-control" id="feedbackType" style="font-family: 'Times New Roman', Times, serif; width:220px; height: 50px;" required>
+                  <select class="form-control" id="feedbackType" style="font-family: 'Times New Roman', Times, serif; width:370px; height: 65px;" required>
                       <option selected disabled>Choose...</option>
                       <option>General Feedback</option>
                       <option>Complaint</option>
@@ -50,29 +91,33 @@
                   </select>
               </div>
           </div>
-
+          <div class="col-md-4">
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <center>
+                <select class="form-control" id="priority" style="font-family: 'Times New Roman', Times, serif; width:370px; height: 65px;" required>
+                    <option selected disabled>Choose...</option>
+                    <option id="High">High</option>
+                    <option id="Middle">Middle</option>
+                    <option id="Low">Low</option>
+                </select>
+              </center><br>
+            </div>
+          </div>
+          
       </div>
       
-      <div class="col-md-6">
-        <div class="form-group">
-            <label for="priority">Priority</label>
-            <center>
-            <select class="form-control" id="priority" style="font-family: 'Times New Roman', Times, serif; width:220px; height: 50px;" required>
-                <option selected disabled>Choose...</option>
-                <option id="High">High</option>
-                <option id="Middle">Middle</option>
-                <option id="Low">Low</option>
-            </select></center><br>
-        </div>
-    </div>
+    
+
       <div class="form-group">
           <label for="feedback">Feedback Details</label><br>
           <textarea class="form-control" id="feedback" rows="4" required></textarea>
       </div><br>
-<!-- Stars -->
+
    
       <center>
-      <button type="submit" class="btn btn-primary btn-block">Submit!</button>
+      <button type="submit" style="  font-size: 20px;
+" class="btn btn-primary btn-block">Submit!</button>
     </center></form>
 </div></center>
 <!-- Contact -->
@@ -109,60 +154,74 @@
 </center>
 </div>
 </div>
-<script>
-document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the form from submitting normally
 
-  // Gather form data
-  const email = document.getElementById('email').value;
-  const name = document.getElementById('name').value;
-  const priority = document.getElementById('priority').value;
-  const type = document.getElementById('feedbackType').value;
-  const content = document.getElementById('feedback').value;
+<!-- footer -->
+<footer>
+  <div class="footer_container">
+    <div class="footer_grid">
+      <div class="footer_logo">
+        <img src="Untitled_Project__4_-removebg-preview.png" alt="" />
+      </div>
+
+      <div class="pages">
+        <h2 class="list_title">Pages</h2>
+        <a href="#home">Home</a>
+        <a href="#partners">Our Partners</a>
+        <a href="#services">Services</a>
+        <a href="#aboutUs">About Us</a>
+        <a href="#contactUs">Contact Us</a>
+      </div>
+
+      <div class="info">
+        <h2 class="list_title">Info</h2>
+        <p>
+          Email: <a href="mailto:Example@gmail.com"> Example@gmail.com</a>
+        </p>
+
+        <p>Phone: <a href="tel:009627*********"> +9627**********</a></p>
+
+        <p>
+          Address:<a
+            href="https://maps.app.goo.gl/zQqZPFxcDaGF4P887"
+            target="_blank"
+          >
+            6 Sheikh K ste,<br />Irbid, Orange Digital <br />Village</a
+          >
+        </p>
+      </div>
+
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13452.038915311185!2d35.8496688!3d32.5525856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c7715f2c2e7ab%3A0x51755840c8ddbefd!2sOrange%20Digital%20Village%20Irbid!5e0!3m2!1sar!2sjo!4v1716222013922!5m2!1sar!2sjo"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrery="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+    </div>
+
+   
+  </div>
+  <div class="copy">
+    <p id="copy">
+      Copyright &copy; 2024 Example Company. All rights reserved.
+    </p>
+  </div>
+
+  <div class="footer_plateform">
+    <a href="linkedin.com/in/Example" target="_blank"
+      ><i class="bx bxl-linkedin"></i
+    ></a>
+    <a href="mailto:Example@gmail.com"><i class="bx bxl-gmail"></i></a>
+    <a href="tel:009627911111111"><i class="bx bx-phone"></i></a>
+  </div>
+</footer>
 
 
-  // Create a new complaint object
-  const newComplaint = {
-    email: email,
-    name: name,
-    priority: priority,
-    type: type,
-    status: 'Open', // Initial status
-    date: new Date().toISOString().slice(0, 10), // Today's date
-    content: content,
-    completed: false // Initially not completed
-
-  };
-
-  // Save to local storage
-  let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
-  complaints.push(newComplaint);
-  localStorage.setItem('complaints', JSON.stringify(complaints));
-
-  // Show thank you message
-  showThankYou();
-
-  // Reset form
-  document.getElementById('feedbackForm').reset();
-});
-
-function showThankYou() {
-  // Create overlay and message
-  const overlay = document.createElement('div');
-  overlay.classList.add('overlay');
-
-  const message = document.createElement('div');
-  message.classList.add('overlay-content');
-  message.innerHTML = '<h3>Thank you for your feedback!</h3><p>We appreciate your valuable input.</p>';
-
-  overlay.appendChild(message);
-  document.body.appendChild(overlay);
-
-  // Remove overlay after 3 seconds
-  setTimeout(function() {
-    overlay.remove();
-  }, 3000);
-}
-</script>
+<script src="contact.js"></script>
 </body>
 </html>
