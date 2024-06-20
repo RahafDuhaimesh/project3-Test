@@ -19,10 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
     newRow.insertCell(1).textContent = complaint.name;
     newRow.insertCell(2).textContent = complaint.priority;
     newRow.insertCell(3).textContent = complaint.type;
+    // ---------------------date---------------------
+    newRow.insertCell(4).textContent = complaint.date;
+
+    // ---------------------feedback-content---------------------
+    const contentCell = newRow.insertCell(5);
+    const contentWrapper = document.createElement("div");
+    contentWrapper.style.maxHeight = "100px";
+    contentWrapper.style.maxWidth = "120px";
+    contentWrapper.style.overflowY = "hidden";
+    contentWrapper.classList.add("feedback-content");
+    contentWrapper.textContent = complaint.content;
+    contentWrapper.setAttribute("data-full-content", complaint.content);
     // ---------------------status Select---------------------
-    const statusCell = newRow.insertCell(4);
+    const statusCell = newRow.insertCell(6);
     const statusSelect = document.createElement("select");
-    statusCell.style.fontSize = 20;
+    statusSelect.style.fontSize = "18px";
 
     statusSelect.classList.add("form-control");
     ["Open", "Closed", "Pending"].forEach((status) => {
@@ -41,18 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     statusCell.appendChild(statusSelect);
     statusSelect.style.width = "110px";
-    // ---------------------date---------------------
-    newRow.insertCell(5).textContent = complaint.date;
-
-    // ---------------------feedback-content---------------------
-    const contentCell = newRow.insertCell(6);
-    const contentWrapper = document.createElement("div");
-    contentWrapper.style.maxHeight = "100px";
-    contentWrapper.style.maxWidth = "120px";
-    contentWrapper.style.overflowY = "hidden";
-    contentWrapper.classList.add("feedback-content");
-    contentWrapper.textContent = complaint.content;
-    contentWrapper.setAttribute("data-full-content", complaint.content);
 
     // ---------------------show More Button---------------------
     const showMoreButton = document.createElement("button");
@@ -63,29 +63,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     contentCell.appendChild(contentWrapper);
     contentCell.appendChild(showMoreButton);
-    // ---------------------task completed---------------------
-    const completedCell = newRow.insertCell(7);
-    const completedCheckbox = document.createElement("input");
-    completedCheckbox.type = "checkbox";
-    completedCheckbox.checked = complaint.completed;
-    completedCheckbox.addEventListener("change", function () {
-      complaint.completed = this.checked;
-      saveComplaints();
-    });
-    completedCell.appendChild(completedCheckbox);
     // --------------------- send Email---------------------
-    const sendEmailCell = newRow.insertCell(8);
+    const sendEmailCell = newRow.insertCell(7);
     const sendEmailLink = document.createElement("a");
     sendEmailLink.href = `mailto:${complaint.email}`;
     sendEmailLink.textContent = "Email";
     sendEmailLink.style.background = "rgb(36, 36, 84)";
+    sendEmailLink.style.fontSize = "20px";
     sendEmailLink.classList.add("btn", "btn-sm", "btn-primary");
     sendEmailCell.appendChild(sendEmailLink);
     // --------------------- Delete---------------------
 
-    const deleteCell = newRow.insertCell(9);
+    const deleteCell = newRow.insertCell(8);
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    deleteButton.style.fontSize = "20px";
     deleteButton.classList.add("btn", "btn-sm", "btn-danger");
     deleteButton.addEventListener("click", function () {
       if (confirm("Are you sure you want to delete this item?")) {
@@ -132,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showMoreButton.textContent = "Show more";
     }
   }
-
+  // ------------------ CREATE THE TABLE ------------------------
   function renderTable() {
     tableBody.innerHTML = "";
     complaints.forEach((complaint, index) => {
@@ -147,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   initializeTable();
-
+  // ---------------FILTER OPTIONS----------------------------
   const filterColumn = document.getElementById("filterColumn");
   const filterInput = document.getElementById("filterInput");
   const filterValues = document.getElementById("filterValues");
@@ -178,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filterValues.appendChild(option);
     });
   });
-  //   filter
+  //  ----------------- filter-------------------------
   filterInput.addEventListener("input", function () {
     const filterValue = filterInput.value.toLowerCase();
     const selectedColumn = filterColumn.value;
@@ -206,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //   Clear Filter
+  // --------------------  Clear Filter ------------------------
   const clearFilterButton = document.getElementById("clearFilterButton");
   clearFilterButton.addEventListener("click", function () {
     filterInput.value = "";
@@ -217,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
   tableBody.style.maxHeight = "400px";
 });
 
-// download as CVS
+// --------------download as CSV----------------------
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("download-btn")

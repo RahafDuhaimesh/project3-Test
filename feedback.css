@@ -1,18 +1,6 @@
-/* Apply styles to the scrollbar */
-
 ::-webkit-scrollbar {
   width: 16px;
-  /* Width of the scrollbar */
 }
-#complaintsTable th,
-#complaintsTable td {
-  border: 1px solid rgb(36, 36, 84);
-}
-#complaintsTable {
-  border-collapse: collapse;
-  font-size: 20px;
-}
-
 body {
   background-color: #f8f9fa;
   font-family: Open Sans, sans-serif;
@@ -21,6 +9,47 @@ body {
   font-size: 20px;
 }
 
+/* -----------------Complaints Table Design -----------------*/
+#complaintsTable th,
+#complaintsTable td {
+  border: 1px solid rgb(36, 36, 84);
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+}
+.table thead {
+  background-color: #343a40;
+  color: white;
+}
+.table-hover tbody tr:hover {
+  background-color: #9ca6b2;
+}
+#complaintsTable {
+  font-size: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+#complaintsTableBody {
+  max-height: 400px;
+  overflow-y: auto;
+}
+#complaintsTableBody select {
+  text-align: center;
+  text-align-last: center;
+}
+#complaintsTableBody button,
+#complaintsTableBody a {
+  text-align: center;
+}
+#complaintsTableBody .feedback-content {
+  text-align: center;
+  margin: auto;
+}
+.table-responsive {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+/* -----------------container -----------------*/
 .container {
   background-color: #ffffff;
   border-radius: 8px;
@@ -31,39 +60,12 @@ body {
   width: 500px;
   height: fit-content;
 }
-
-/* ShowMore */
-
-.table-responsive {
-  max-height: 500px;
-  overflow-y: scroll;
-}
-
-.table thead {
-  background-color: #343a40;
-  color: white;
-}
-
-.table-hover tbody tr:hover {
-  background-color: #9ca6b2;
-}
-
+/* -------------filter ---------------------- */
 #filterColumn,
 #filterInput {
   max-width: 400px;
 }
-
-.counting {
-  background-color: rgb(36, 36, 84);
-}
-
-.status-counter {
-  color: aliceblue;
-  border-radius: 20px;
-  padding: 20px;
-}
-
-/* Counter Section */
+/* -------------------- Counter Section ---------------------*/
 
 .counter {
   width: 100%;
@@ -74,11 +76,9 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   flex-wrap: wrap;
   font-size: 20px;
-
   position: relative;
   justify-content: space-around;
 }
-
 .counter1,
 .counter2,
 .counter3 {
@@ -93,9 +93,17 @@ body {
   padding: 20px;
   color: #f8f9fa;
   font-size: 30px;
-
   border-radius: 10px;
 }
+.counting {
+  background-color: rgb(36, 36, 84);
+}
+.status-counter {
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 20px;
+}
+/* -----------------download & clear filter -----------------*/
 
 #clearFilterButton,
 #download-btn {
@@ -105,36 +113,24 @@ body {
   height: 50px;
   margin-top: 20px;
 }
-
+#download-btn:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#clearFilterButton:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 .form-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-#complaintsTable {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#complaintsTable th,
-#complaintsTable td {
-  padding: 8px;
-}
-
-#complaintsTableBody {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-/*showMore*/
-
 .content {
   height: 100px;
   overflow-y: hidden;
 }
 
-/* Responsive Design for Smaller Screens */
+/*-------------------- Responsive Design --------------------- */
 
 @media (max-width: 426px) {
   .container {
@@ -166,8 +162,4 @@ body {
   .counter {
     margin-left: 65px;
   }
-}
-
-#download-btn:hover {
-  background-color: #45a049;
 }

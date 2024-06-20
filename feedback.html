@@ -72,6 +72,7 @@
   </header>
 
   <body>
+    <!-- Feedback Dashboard -->
     <div class="container mt-5" style="width: 2000px">
       <h2
         class="mb-4 text-center"
@@ -79,7 +80,7 @@
       >
         Feedback Dashboard
       </h2>
-
+      <!-- FILTER BY -->
       <div class="form-row">
         <div class="form-group col-md-4 col-12" style="width: 350px">
           <label for="filterColumn">Filter by:</label>
@@ -96,7 +97,7 @@
             <option value="5">Date of Submit</option>
           </select>
         </div>
-
+        <!-- Filter value -->
         <div class="form-group col-md-4 col-12" style="width: 300px">
           <label for="filterInput">Filter value:</label>
           <input
@@ -109,7 +110,7 @@
           />
           <datalist id="filterValues"></datalist>
         </div>
-
+        <!-- Clear Filter -->
         <button
           id="clearFilterButton"
           class="btn btn-info"
@@ -117,15 +118,16 @@
         >
           Clear Filter
         </button>
-
+        <!-- Download as CSV -->
         <button
           id="download-btn"
           style="width: fit-content; height: 50px; font-size: 20px"
           class="btn btn-secondary"
         >
-          Download as CVS
+          Download as CSV
         </button>
       </div>
+      <!-- TABLE  -->
       <div class="table-responsive">
         <table
           class="table table-striped table-hover mt-3"
@@ -143,10 +145,9 @@
               <th>Name</th>
               <th>Priority</th>
               <th>Type of feedback</th>
-              <th>Status</th>
               <th>Date of Submit</th>
               <th>Content of Feedback</th>
-              <th>Task Completed</th>
+              <th>Status</th>
               <th>Send Email</th>
               <th>Delete</th>
             </tr>
@@ -157,7 +158,7 @@
           ></tbody>
         </table>
       </div>
-
+      <!-- COUNTER -->
       <div class="counting">
         <div class="row justify-content-center">
           <div class="col-md-4 col-sm-6">
@@ -180,6 +181,7 @@
         </div>
       </div>
     </div>
+    <!-- FOOTER -->
     <footer>
       <div class="footer_container">
         <div class="footer_grid">
