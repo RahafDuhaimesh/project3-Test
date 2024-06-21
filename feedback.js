@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusCell = newRow.insertCell(6);
     const statusSelect = document.createElement("select");
     statusSelect.style.fontSize = "18px";
-
     statusSelect.classList.add("form-control");
     ["Open", "Closed", "Pending"].forEach((status) => {
       const option = document.createElement("option");
@@ -53,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     statusCell.appendChild(statusSelect);
     statusSelect.style.width = "110px";
+    statusSelect.style.margin = "auto";
 
     // ---------------------show More Button---------------------
     const showMoreButton = document.createElement("button");
