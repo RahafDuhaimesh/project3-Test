@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="feedback.css" />
     <link rel="stylesheet" href="Footer.css" />
-    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="navbar.css" />
 
     <style>
       .status-counter {
@@ -42,30 +42,47 @@
   <!-- NavBar -->
   <header>
     <div class="logo">
-      <img src="Untitled_Project__4_-removebg-preview.png" id="img" alt="" />
+      <img
+        src="Untitled_Project__4_-removebg-preview.png"
+        id="img"
+        alt="Logo"
+      />
     </div>
-    <div class="hamburger">
+
+    <div class="hamburger" id="hamburger">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
     </div>
+
     <nav class="nav-bar">
-      <div class="nav-links">
-        <ul>
-          <li><a href="" class="active">Home</a></li>
-          <li><a href="">Our Partners</a></li>
-          <li><a href="">Services</a></li>
-          <li><a href="">About Us</a></li>
-          <li><a href="">Contact Us</a></li>
-          <li><a href="" id="display3">Profile</a></li>
-          <li><a href="" id="display4">Logout</a></li>
-        </ul>
-      </div>
-      <div class="profile-menu">
-        <div class="profile-name">Menu <span id="triangle">&#9660;</span></div>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#aboutUs">About Us</a></li>
+        <li><a href="#partners">Our Partners</a></li>
+        <li id="services" class="auth-only">
+          <a href="#service">Services</a>
+        </li>
+        <li><a href="#contactUs">Contact Us</a></li>
+        <li id="login"><a href="#login">Login</a></li>
+        <li id="signup"><a href="#signup">Signup</a></li>
+      </ul>
+      <ul class="auth-only">
+        <li id="profile"><a href="#profile">Profile</a></li>
+        <li id="logout">
+          <a id="logoutRes" class="logout" href="#logout">Logout</a>
+        </li>
+      </ul>
+      <div id="profileMenu" class="profile-menu">
+        <div class="profile-name">
+          <span id="profileName">User</span>
+          <i class="fa-regular fa-user" id="icon"></i>
+        </div>
         <ul class="dropdown">
-          <li><a href="">Profile</a></li>
-          <li><a href="">Logout</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li>
+            <a href="#logout" class="logout" id="logoutNotRes">Logout</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -247,5 +264,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="feedback.js"></script>
+    <script src="navbar.js"></script>
   </body>
 </html>
